@@ -15,3 +15,13 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+
+# Strip the lib and remove all WebnetLog references
+-assumenosideeffects class com.webnetmobile.tools.webnetlog.WebnetLog {
+    public static int v(...);
+    public static int i(...);
+    public static int w(...);
+    public static int d(...);
+    public static int e(...);
+}

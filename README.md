@@ -67,6 +67,18 @@ Tagging
 
     06-20 15:49:36.640 29827-29834/pkg.id D/MyTag﹕StartActivity$Stasis/test()[+25]
 
+Removing loggins from production builds
+---------------------------------------
+ You can safely strip WebnetLog class during minification, and library comes with ProGuard config
+ bundled. If for any reason you use it differently, add this to your ProGuard config file:
+
+    -assumenosideeffects class com.webnetmobile.tools.webnetlog.WebnetLog {
+         public static int v(...);
+         public static int i(...);
+         public static int w(...);
+         public static int d(...);
+         public static int e(...);
+    }
 
 Add WebnetLog to your project
 -----------------------------
