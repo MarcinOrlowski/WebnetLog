@@ -1,3 +1,5 @@
+[ ![Download](https://api.bintray.com/packages/webnetmobile/maven/webnet-log/images/download.svg) ](https://bintray.com/webnetmobile/maven/webnet-log/_latestVersion)
+
 WebnetLog
 =========
  WebnetLog is small extension to Log class, bringing simpler usage and automatically adding
@@ -58,10 +60,11 @@ to set up different tag (tag is static, so you need to set it only once).
 
 Add WebnetLog to your project
 ----------------------------=
-WebnetLog is available on jcentral. Please ensure that you are using the latest version:
-[ ![Download](https://api.bintray.com/packages/webnetmobile/maven/webnet-log/images/download.svg) ](https://bintray.com/webnetmobile/maven/webnet-log/_latestVersion)
+WebnetLog is available via jcentral repository, so all you need is to edit your `build.gradle` file
+and add one line:
 
-Gradle:
 ```
-    compile 'com.webnetmobile.tools:webnetlog:1.0.0'
+    compile 'com.webnetmobile.tools:webnetlog:+'
 ```
+
+to your `dependencies` section.
