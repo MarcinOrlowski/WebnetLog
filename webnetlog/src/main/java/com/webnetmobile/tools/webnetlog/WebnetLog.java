@@ -33,7 +33,16 @@ import android.util.Log;
  * Logging made easy
  */
 public class WebnetLog {
+
+	/**
+	 * The TAG.
+	 */
 	static protected String TAG = "WebnetLog";
+
+	/**
+	 * Max length of tag string, as per Log.isLoggable() docs, tag limit is 23 chars
+	 */
+	static final int MAX_TAG_LENGTH = 23;
 
 	/**
 	 * Optional initialization method
@@ -41,6 +50,9 @@ public class WebnetLog {
 	 * @param tag Any string you want to be used as log TAG, instead of default value
 	 */
 	public static void setTag(String tag) {
+		if (tag.length() > MAX_TAG_LENGTH) {
+			tag = tag.substring(0, (MAX_TAG_LENGTH - 1));
+		}
 		TAG = tag;
 	}
 
@@ -132,7 +144,7 @@ public class WebnetLog {
 
 	//--[ Compatibility ]---------------------------------------------------------------------------------------------------------
 
-	public static boolean isLoggable (String tag, int level) {
+	public static boolean isLoggable(String tag, int level) {
 		return Log.isLoggable(tag, level);
 	}
 
@@ -217,7 +229,6 @@ public class WebnetLog {
 	protected static int _v(String tag, String message) {
 		return Log.v(tag, message);
 	}
-
 
 
 	//--[ i ]---------------------------------------------------------------------------------------------------------------------
