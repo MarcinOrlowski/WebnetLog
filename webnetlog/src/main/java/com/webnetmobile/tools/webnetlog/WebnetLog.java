@@ -130,6 +130,90 @@ public class WebnetLog {
 		return tag + ": " + getCallerTrace() + ": " + message;
 	}
 
+	//--[ v ]---------------------------------------------------------------------------------------------------------------------
+
+	/**
+	 * Logs Verbose entry
+	 *
+	 * @return The number of bytes written
+	 */
+	public static int v() {
+		return _v(TAG, formatMessage());
+	}
+
+	/**
+	 * Logs Verbose entry
+	 *
+	 * @param message message to be added to result message
+	 *
+	 * @return The number of bytes written
+	 */
+	public static int v(int message) {
+		return v("(int): " + message);
+	}
+
+	/**
+	 * Logs Verbose entry
+	 *
+	 * @param message message to be added to result message
+	 *
+	 * @return The number of bytes written
+	 */
+	public static int v(String message) {
+		return _v(TAG, formatMessage(message));
+	}
+
+	/**
+	 * Logs Verbose entry
+	 *
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message message to be added to result message
+	 *
+	 * @return The number of bytes written
+	 */
+	public static int v(String tag, String message) {
+		return _v(TAG, formatMessage(tag, message));
+	}
+
+	/**
+	 * Logs Verbose entry
+	 *
+	 * @param message   message to be added to result message
+	 * @param throwable exception to log (calls getMessage() and appends it to log entry)
+	 *
+	 * @return The number of bytes written
+	 */
+	public static int v(String message, Throwable throwable) {
+		return _v(TAG, formatMessage(message + " " + throwable.getMessage()));
+	}
+
+	/**
+	 * Logs Verbose entry
+	 *
+	 * @param tag       custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message   message to be added to result message
+	 * @param throwable exception to log (calls getMessage() and appends it to log entry)
+	 *
+	 * @return The number of bytes written
+	 */
+	public static int v(String tag, String message, Throwable throwable) {
+		return _v(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
+	}
+
+	/**
+	 * Logs Verbose entry
+	 *
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message message to be added to result message
+	 *
+	 * @return The number of bytes written
+	 */
+	protected static int _v(String tag, String message) {
+		return Log.v(tag, message);
+	}
+
+
+
 	//--[ i ]---------------------------------------------------------------------------------------------------------------------
 
 	/**
