@@ -144,6 +144,16 @@ public class WebnetLog {
 
 	//--[ Compatibility ]---------------------------------------------------------------------------------------------------------
 
+	/**
+	 * Checks to see whether or not a log for the specified tag is loggable at the specified level. The default level of any tag is
+	 * set to INFO. This means that any level above and including INFO will be logged. Before you make any calls to a logging method
+	 * you should check to see if your tag should be logged.
+	 *
+	 * @param tag the tag to check
+	 * @param level the level to check
+	 *
+	 * @return Returns @true when is allowed to be logged, @false otherwise
+	 */
 	public static boolean isLoggable(String tag, int level) {
 		return Log.isLoggable(tag, level);
 	}
