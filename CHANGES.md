@@ -4,6 +4,8 @@
  - Fixed chaining of i()
  - Added isLoggable()
  - setTag() trims tag to 23 chars long to make Log.* not throw IllegalArgumentException
+ - added formatThrowable()
+ - added getStackTraceString()
 
 1.0.1 (2015.06.20)
 ------------------
