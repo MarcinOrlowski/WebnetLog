@@ -10,10 +10,10 @@ ext {
 
     libraryDescription = 'Log wrapper making Android logging much easier and useful, by providing additional information in your logcat out-of-the-box.'
 
-    siteUrl = 'https://bitbucket.org/webnetmobile/webnetlog/'
-    gitUrl = 'https://bitbucket.org/webnetmobile/webnetlog.git'
+    siteUrl = 'https://bitbucket.org/webnetmobile/webnet-log/'
+    gitUrl = 'https://bitbucket.org/webnetmobile/webnet-log.git'
 
-    libraryVersion = '1.0.1'
+    libraryVersion = '1.0.2'
 
     developerId = 'webnetmobile'
     developerName = 'Marcin Orlowski'
