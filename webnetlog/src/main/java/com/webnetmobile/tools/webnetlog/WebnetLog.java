@@ -249,7 +249,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int v(String message, Throwable throwable) {
-		return _v(TAG, formatMessage(message + " " + throwable.getMessage()));
+		return _v(TAG, formatMessage(message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -262,7 +262,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int v(String tag, String message, Throwable throwable) {
-		return _v(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
+		return _v(TAG, formatMessage(tag, message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -332,7 +332,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int i(String message, Throwable throwable) {
-		return _i(TAG, formatMessage(message + " " + throwable.getMessage()));
+		return _i(TAG, formatMessage(message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -345,7 +345,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int i(String tag, String message, Throwable throwable) {
-		return _i(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
+		return _i(TAG, formatMessage(tag, message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -403,7 +403,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int w(String message, Throwable throwable) {
-		return _w(TAG, formatMessage(message + " " + throwable.getMessage()));
+		return _w(TAG, formatMessage(message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -416,7 +416,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int w(String tag, String message, Throwable throwable) {
-		return _w(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
+		return _w(TAG, formatMessage(tag, message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -474,7 +474,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int e(String message, Throwable throwable) {
-		return _e(TAG, formatMessage(message + " " + throwable.getMessage()));
+		return _e(TAG, formatMessage(message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -487,7 +487,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int e(String tag, String message, Throwable throwable) {
-		return _e(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
+		return _e(TAG, formatMessage(tag, message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -558,7 +558,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int d(String tag, String message, Throwable throwable) {
-		return _d(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
+		return _d(TAG, formatMessage(tag, message + formatThrowable(throwable)));
 	}
 
 	/**
