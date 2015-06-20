@@ -190,6 +190,8 @@ public class WebnetLog {
 	 * Handy function to get a loggable stack trace from a Throwable
 	 *
 	 * @param throwable An exception to log
+	 *
+	 * @return formatted stacktrace as string
 	 */
 	public static String getStackTraceString(Throwable throwable) {
 		return Log.getStackTraceString(throwable);
