@@ -256,7 +256,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int i(String tag, String message) {
-		return Log.i(TAG, formatMessage(tag, message));
+		return _i(TAG, formatMessage(tag, message));
 	}
 
 	/**
