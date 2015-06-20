@@ -73,6 +73,7 @@ Removing loggins from production builds
  bundled. If for any reason you use it differently, add this to your ProGuard config file:
 
     -assumenosideeffects class com.webnetmobile.tools.webnetlog.WebnetLog {
+         public static boolean isLoggable(java.lang.String, int);
          public static int v(...);
          public static int i(...);
          public static int w(...);

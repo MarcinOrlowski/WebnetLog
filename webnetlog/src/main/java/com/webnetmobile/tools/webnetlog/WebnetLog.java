@@ -130,6 +130,12 @@ public class WebnetLog {
 		return tag + ": " + getCallerTrace() + ": " + message;
 	}
 
+	//--[ Compatibility ]---------------------------------------------------------------------------------------------------------
+
+	public static boolean isLoggable (String tag, int level) {
+		return Log.isLoggable(tag, level);
+	}
+
 	//--[ v ]---------------------------------------------------------------------------------------------------------------------
 
 	/**
