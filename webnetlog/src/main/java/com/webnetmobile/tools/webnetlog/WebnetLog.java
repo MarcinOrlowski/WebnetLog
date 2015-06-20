@@ -142,6 +142,34 @@ public class WebnetLog {
 		return tag + ": " + getCallerTrace() + ": " + message;
 	}
 
+	/**
+	 * Format throwable log entry
+	 *
+	 * @param throwable throwable
+	 *
+	 * @return string to be placed in log
+	 */
+	public static String formatThrowable(Throwable throwable) {
+		return formatThrowable(throwable, " ");
+	}
+
+	/**
+	 * Format throwable log entry
+	 *
+	 * @param throwable throwable to format. It's safe to pass @null as throwable
+	 * @param prefix optional prefix (or @null)
+	 *
+	 * @return string to be placed in log. In case throwable is @null, returns empty string
+	 */
+	public static String formatThrowable(Throwable throwable, String prefix) {
+		if (throwable != null) {
+			return ((prefix != null) ? prefix : "") + throwable.getMessage() + " " + getStackTraceString(throwable);
+		} else {
+			return "";
+		}
+	}
+
+
 	//--[ Compatibility ]---------------------------------------------------------------------------------------------------------
 
 	/**
@@ -156,6 +184,15 @@ public class WebnetLog {
 	 */
 	public static boolean isLoggable(String tag, int level) {
 		return Log.isLoggable(tag, level);
+	}
+
+	/**
+	 * Handy function to get a loggable stack trace from a Throwable
+	 *
+	 * @param throwable An exception to log
+	 */
+	public static String getStackTraceString(Throwable throwable) {
+		return Log.getStackTraceString(throwable);
 	}
 
 	//--[ v ]---------------------------------------------------------------------------------------------------------------------
