@@ -1,4 +1,4 @@
-1.0.1 (2015.06.__)
+1.0.1 (2015.06.20)
 ------------------
  - Added return value to all logging methods to keep compatible with Log's methods return value.
 
