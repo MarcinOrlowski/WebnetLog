@@ -2,6 +2,8 @@
 ------------------
  - Restored missing v()
  - Fixed chaining of i()
+ - Added isLoggable()
+ - setTag() trims tag to 23 chars long to make Log.* not throw IllegalArgumentException
 
 1.0.1 (2015.06.20)
 ------------------

@@ -19,6 +19,7 @@
 
 # Strip the lib and remove all WebnetLog references
 -assumenosideeffects class com.webnetmobile.tools.webnetlog.WebnetLog {
+    public static boolean isLoggable(java.lang.String, int);
     public static int v(...);
     public static int i(...);
     public static int w(...);
