@@ -86,7 +86,7 @@ Add WebnetLog to your project
  WebnetLog is available via jcenter repository, so all you need is to edit your `build.gradle` file
  and add one line:
 
-    compile 'com.webnetmobile.tools:webnetlog:1.+'
+    compile 'com.webnetmobile.tools:webnet-log:1.+'
 
  to your `dependencies` section.
 
