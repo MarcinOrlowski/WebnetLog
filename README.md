@@ -1,6 +1,6 @@
 [ ![Download](https://api.bintray.com/packages/webnetmobile/maven/webnet-log/images/download.svg) ](https://bintray.com/webnetmobile/maven/webnet-log/_latestVersion)
 
-![WebnetLog](https://bytebucket.org/webnetmobile/webnetlog/raw/master/PROJECT/webnet-log-600.png =250x250)
+![WebnetLog](https://bytebucket.org/webnetmobile/webnetlog/raw/master/PROJECT/webnet-log-200.png)
 
 WebnetLog
 =========
