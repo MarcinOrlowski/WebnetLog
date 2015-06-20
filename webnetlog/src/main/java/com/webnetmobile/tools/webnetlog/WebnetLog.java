@@ -63,12 +63,12 @@ public class WebnetLog {
 	/**
 	 * Gets caller trace. It's important to understand what we got on stack and NOT
 	 * call this method directly or the output will be wrong.
-	 * <p>
+	 * <p/>
 	 * 0: getCallerTrace() (this)
 	 * 1: formatMessage()
 	 * 2: one of local calling methods (i.e. i())
 	 * 3: caller class and method
-	 * <p>
+	 * <p/>
 	 * FIXME we could work that out by analyzing stack and skipping all invocation from this class but as for now it's not done
 	 *
 	 * @return the caller trace
@@ -147,8 +147,8 @@ public class WebnetLog {
 	/**
 	 * Logs Information entry
 	 *
-	 * @param tag     log entry tag
-	 * @param message message
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message message to be added to result message
 	 */
 	public static int i(String tag, String message) {
 		return Log.i(TAG, formatMessage(tag, message));
@@ -157,7 +157,7 @@ public class WebnetLog {
 	/**
 	 * Logs Information entry
 	 *
-	 * @param message   message
+	 * @param message   message to be added to result message
 	 * @param throwable exception to log (calls getMessage() and appends it to log entry)
 	 */
 	public static int i(String message, Throwable throwable) {
@@ -167,8 +167,8 @@ public class WebnetLog {
 	/**
 	 * Logs Information entry
 	 *
-	 * @param tag       tag
-	 * @param message   message
+	 * @param tag       custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message   message to be added to result message
 	 * @param throwable exception to log (calls getMessage() and appends it to log entry)
 	 */
 	public static int i(String tag, String message, Throwable throwable) {
@@ -178,11 +178,11 @@ public class WebnetLog {
 	/**
 	 * Logs Information entry
 	 *
-	 * @param tag tag
-	 * @param msg msg
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message message to be added to result message
 	 */
-	protected static int _i(String tag, String msg) {
-		return Log.i(tag, msg);
+	protected static int _i(String tag, String message) {
+		return Log.i(tag, message);
 	}
 
 	//--[ w ]---------------------------------------------------------------------------------------------------------------------
@@ -197,7 +197,7 @@ public class WebnetLog {
 	/**
 	 * Logs Warning entry
 	 *
-	 * @param message message
+	 * @param message message to be added to result message
 	 */
 	public static int w(String message) {
 		return _w(TAG, formatMessage(message));
@@ -206,8 +206,8 @@ public class WebnetLog {
 	/**
 	 * Logs Warning entry
 	 *
-	 * @param tag     tag
-	 * @param message message
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message message to be added to result message
 	 */
 	public static int w(String tag, String message) {
 		return _w(TAG, formatMessage(tag, message));
@@ -216,19 +216,19 @@ public class WebnetLog {
 	/**
 	 * Logs Warning entry
 	 *
-	 * @param message message
-	 * @param tr      tr
+	 * @param message   message to be added to result message
+	 * @param throwable exception to log (calls getMessage() and appends it to log entry)
 	 */
-	public static int w(String message, Throwable tr) {
-		return _w(TAG, formatMessage(message + " " + tr.getMessage()));
+	public static int w(String message, Throwable throwable) {
+		return _w(TAG, formatMessage(message + " " + throwable.getMessage()));
 	}
 
 	/**
 	 * Logs Warning entry
 	 *
-	 * @param tag tag
-	 * @param message message
-	 * @param throwable throwable
+	 * @param tag       custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message   message to be added to result message
+	 * @param throwable exception to log (calls getMessage() and appends it to log entry)
 	 *
 	 * @return int The number of bytes written
 	 */
@@ -239,13 +239,13 @@ public class WebnetLog {
 	/**
 	 * Logs Warning entry
 	 *
-	 * @param tag tag
-	 * @param msg msg
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message message to be added to result message
 	 *
 	 * @return int The number of bytes written
 	 */
-	protected static int _w(String tag, String msg) {
-		return Log.w(tag, msg);
+	protected static int _w(String tag, String message) {
+		return Log.w(tag, message);
 	}
 
 	//--[ e ]---------------------------------------------------------------------------------------------------------------------
@@ -262,7 +262,7 @@ public class WebnetLog {
 	/**
 	 * Logs Error entry
 	 *
-	 * @param message message
+	 * @param message message to be added to result message
 	 *
 	 * @return int The number of bytes written
 	 */
@@ -273,8 +273,8 @@ public class WebnetLog {
 	/**
 	 * Logs Error entry
 	 *
-	 * @param tag tag
-	 * @param message message
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message message to be added to result message
 	 *
 	 * @return int The number of bytes written
 	 */
@@ -285,9 +285,10 @@ public class WebnetLog {
 	/**
 	 * Logs Error entry
 	 *
-	 * @param message message
-	 * @param throwable throwable to log
-	 * @return the int
+	 * @param message   message to be added to result message
+	 * @param throwable exception to log (calls getMessage() and appends it to log entry)
+	 *
+	 * @return int The number of bytes written
 	 */
 	public static int e(String message, Throwable throwable) {
 		return _e(TAG, formatMessage(message + " " + throwable.getMessage()));
@@ -296,8 +297,8 @@ public class WebnetLog {
 	/**
 	 * Logs Error entry
 	 *
-	 * @param tag tag
-	 * @param message message
+	 * @param tag       custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message   message to be added to result message
 	 * @param throwable throwable to log
 	 *
 	 * @return int The number of bytes written
@@ -309,13 +310,13 @@ public class WebnetLog {
 	/**
 	 * Logs Error entry
 	 *
-	 * @param tag tag
-	 * @param msg msg
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message message to be added to result message
 	 *
 	 * @return int The number of bytes written
 	 */
-	protected static int _e(String tag, String msg) {
-		return Log.e(tag, msg);
+	protected static int _e(String tag, String message) {
+		return Log.e(tag, message);
 	}
 
 	//--[ d ]---------------------------------------------------------------------------------------------------------------------
@@ -332,7 +333,7 @@ public class WebnetLog {
 	/**
 	 * Logs Debug entry
 	 *
-	 * @param message message
+	 * @param message message to be added to result message
 	 *
 	 * @return int The number of bytes written
 	 */
@@ -343,8 +344,8 @@ public class WebnetLog {
 	/**
 	 * Logs Debug entry
 	 *
-	 * @param tag     tag
-	 * @param message message
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message message to be added to result message
 	 *
 	 * @return int The number of bytes written
 	 */
@@ -355,7 +356,7 @@ public class WebnetLog {
 	/**
 	 * Logs Debug entry
 	 *
-	 * @param message   message
+	 * @param message   message to be added to result message
 	 * @param throwable throwable
 	 *
 	 * @return int The number of bytes written
@@ -367,8 +368,8 @@ public class WebnetLog {
 	/**
 	 * Logs Debug entry
 	 *
-	 * @param tag       tag
-	 * @param message   message
+	 * @param tag       custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message   message to be added to result message
 	 * @param throwable throwable
 	 *
 	 * @return int The number of bytes written
@@ -380,8 +381,8 @@ public class WebnetLog {
 	/**
 	 * Logs Debug entry
 	 *
-	 * @param tag tag
-	 * @param msg msg
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
+	 * @param message message to be added to result message
 	 *
 	 * @return int The number of bytes written
 	 */
