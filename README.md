@@ -64,7 +64,7 @@ WebnetLog is available via jcentral repository, so all you need is to edit your 
 and add one line:
 
 ```
-    compile 'com.webnetmobile.tools:webnetlog:+'
+    compile 'com.webnetmobile.tools:webnetlog:1.+'
 ```
 
 to your `dependencies` section.
