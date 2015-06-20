@@ -8,7 +8,7 @@ import android.util.Log;
 /*
  ******************************************************************************
  *
- * Copyright 2013-2015 Marcin Or³owski, Webnet <http://webnetmobile.com/>
+ * Copyright 2013-2015 Marcin Orlowski, Webnet <http://webnetmobile.com/>
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,7 +28,11 @@ import android.util.Log;
  *
  ******************************************************************************
  */
-final public class WebnetLog {
+
+/**
+ * Logging made easy
+ */
+public class WebnetLog {
 	static protected String TAG = "WebnetLog";
 
 	/**
@@ -59,12 +63,12 @@ final public class WebnetLog {
 	/**
 	 * Gets caller trace. It's important to understand what we got on stack and NOT
 	 * call this method directly or the output will be wrong.
-	 *
-	 *  0: getCallerTrace() (this)
-	 *  1: formatMessage()
-	 *  2: one of local calling methods (i.e. i())
-	 *  3: caller class and method
-	 *
+	 * <p>
+	 * 0: getCallerTrace() (this)
+	 * 1: formatMessage()
+	 * 2: one of local calling methods (i.e. i())
+	 * 3: caller class and method
+	 * <p>
 	 * FIXME we could work that out by analyzing stack and skipping all invocation from this class but as for now it's not done
 	 *
 	 * @return the caller trace
@@ -77,6 +81,7 @@ final public class WebnetLog {
 	 * Gets caller trace.
 	 *
 	 * @param depth depth
+	 *
 	 * @return the caller trace
 	 */
 	protected static String getCallerTrace(int depth) {
@@ -116,7 +121,7 @@ final public class WebnetLog {
 	/**
 	 * Format message.
 	 *
-	 * @param tag custom tag message shall be PREFIXED with (not tagged!)
+	 * @param tag     custom tag message shall be PREFIXED with (not tagged!)
 	 * @param message message to be added to result message
 	 *
 	 * @return message string
@@ -142,34 +147,32 @@ final public class WebnetLog {
 	/**
 	 * Logs Information entry
 	 *
-	 * @param tag log entry tag
+	 * @param tag     log entry tag
 	 * @param message message
 	 */
-	public static void i(String tag, String message) {
-		Log.i(TAG, formatMessage(tag, message));
+	public static int i(String tag, String message) {
+		return Log.i(TAG, formatMessage(tag, message));
 	}
 
 	/**
 	 * Logs Information entry
 	 *
-	 * @param message message
-	 *
+	 * @param message   message
 	 * @param throwable exception to log (calls getMessage() and appends it to log entry)
 	 */
-	public static void i(String message, Throwable throwable) {
-		_i(TAG, formatMessage(message + " " + throwable.getMessage()));
+	public static int i(String message, Throwable throwable) {
+		return _i(TAG, formatMessage(message + " " + throwable.getMessage()));
 	}
 
 	/**
 	 * Logs Information entry
 	 *
-	 * @param tag tag
-	 * @param message message
-	 *
+	 * @param tag       tag
+	 * @param message   message
 	 * @param throwable exception to log (calls getMessage() and appends it to log entry)
 	 */
-	public static void i(String tag, String message, Throwable throwable) {
-		_i(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
+	public static int i(String tag, String message, Throwable throwable) {
+		return _i(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
 	}
 
 	/**
@@ -178,8 +181,8 @@ final public class WebnetLog {
 	 * @param tag tag
 	 * @param msg msg
 	 */
-	protected static void _i(String tag, String msg) {
-		Log.i(tag, msg);
+	protected static int _i(String tag, String msg) {
+		return Log.i(tag, msg);
 	}
 
 	//--[ w ]---------------------------------------------------------------------------------------------------------------------
@@ -187,8 +190,8 @@ final public class WebnetLog {
 	/**
 	 * Logs Warning entry
 	 */
-	public static void w() {
-		_w(TAG, formatMessage());
+	public static int w() {
+		return _w(TAG, formatMessage());
 	}
 
 	/**
@@ -196,8 +199,28 @@ final public class WebnetLog {
 	 *
 	 * @param message message
 	 */
-	public static void w(String message) {
-		_w(TAG, formatMessage(message));
+	public static int w(String message) {
+		return _w(TAG, formatMessage(message));
+	}
+
+	/**
+	 * Logs Warning entry
+	 *
+	 * @param tag     tag
+	 * @param message message
+	 */
+	public static int w(String tag, String message) {
+		return _w(TAG, formatMessage(tag, message));
+	}
+
+	/**
+	 * Logs Warning entry
+	 *
+	 * @param message message
+	 * @param tr      tr
+	 */
+	public static int w(String message, Throwable tr) {
+		return _w(TAG, formatMessage(message + " " + tr.getMessage()));
 	}
 
 	/**
@@ -205,30 +228,12 @@ final public class WebnetLog {
 	 *
 	 * @param tag tag
 	 * @param message message
-	 */
-	public static void w(String tag, String message) {
-		_w(TAG, formatMessage(tag, message));
-	}
-
-	/**
-	 * Logs Warning entry
+	 * @param throwable throwable
 	 *
-	 * @param message message
-	 * @param tr tr
+	 * @return int The number of bytes written
 	 */
-	public static void w(String message, Throwable tr) {
-		_w(TAG, formatMessage(message + " " + tr.getMessage()));
-	}
-
-	/**
-	 * Logs Warning entry
-	 *
-	 * @param tag tag
-	 * @param message message
-	 * @param tr tr
-	 */
-	public static void w(String tag, String message, Throwable tr) {
-		_w(TAG, formatMessage(tag, message + " " + tr.getMessage()));
+	public static int w(String tag, String message, Throwable throwable) {
+		return _w(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
 	}
 
 	/**
@@ -236,47 +241,33 @@ final public class WebnetLog {
 	 *
 	 * @param tag tag
 	 * @param msg msg
+	 *
+	 * @return int The number of bytes written
 	 */
-	protected static void _w(String tag, String msg) {
-		Log.w(tag, msg);
+	protected static int _w(String tag, String msg) {
+		return Log.w(tag, msg);
 	}
 
 	//--[ e ]---------------------------------------------------------------------------------------------------------------------
 
 	/**
 	 * Logs Error entry
+	 *
+	 * @return int The number of bytes written
 	 */
-	public static void e() {
-		_e(TAG, formatMessage());
+	public static int e() {
+		return _e(TAG, formatMessage());
 	}
 
 	/**
 	 * Logs Error entry
 	 *
 	 * @param message message
-	 */
-	public static void e(String message) {
-		_e(TAG, formatMessage(message));
-	}
-
-	/**
-	 * Logs Error entry
 	 *
-	 * @param tag tag
-	 * @param message message
+	 * @return int The number of bytes written
 	 */
-	public static void e(String tag, String message) {
-		_e(TAG, formatMessage(tag, message));
-	}
-
-	/**
-	 * Logs Error entry
-	 *
-	 * @param message message
-	 * @param throwable tr
-	 */
-	public static void e(String message, Throwable throwable) {
-		_e(TAG, formatMessage(message + " " + throwable.getMessage()));
+	public static int e(String message) {
+		return _e(TAG, formatMessage(message));
 	}
 
 	/**
@@ -284,10 +275,35 @@ final public class WebnetLog {
 	 *
 	 * @param tag tag
 	 * @param message message
-	 * @param throwable tr
+	 *
+	 * @return int The number of bytes written
 	 */
-	public static void e(String tag, String message, Throwable throwable) {
-		_e(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
+	public static int e(String tag, String message) {
+		return _e(TAG, formatMessage(tag, message));
+	}
+
+	/**
+	 * Logs Error entry
+	 *
+	 * @param message message
+	 * @param throwable throwable to log
+	 * @return the int
+	 */
+	public static int e(String message, Throwable throwable) {
+		return _e(TAG, formatMessage(message + " " + throwable.getMessage()));
+	}
+
+	/**
+	 * Logs Error entry
+	 *
+	 * @param tag tag
+	 * @param message message
+	 * @param throwable throwable to log
+	 *
+	 * @return int The number of bytes written
+	 */
+	public static int e(String tag, String message, Throwable throwable) {
+		return _e(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
 	}
 
 	/**
@@ -295,58 +311,70 @@ final public class WebnetLog {
 	 *
 	 * @param tag tag
 	 * @param msg msg
+	 *
+	 * @return int The number of bytes written
 	 */
-	protected static void _e(String tag, String msg) {
-		Log.e(tag, msg);
+	protected static int _e(String tag, String msg) {
+		return Log.e(tag, msg);
 	}
 
 	//--[ d ]---------------------------------------------------------------------------------------------------------------------
 
 	/**
 	 * Logs Debug entry
+	 *
+	 * @return int The number of bytes written
 	 */
-	public static void d() {
-		_d(TAG, formatMessage());
+	public static int d() {
+		return _d(TAG, formatMessage());
 	}
 
 	/**
 	 * Logs Debug entry
 	 *
 	 * @param message message
+	 *
+	 * @return int The number of bytes written
 	 */
-	public static void d(String message) {
-		_d(TAG, formatMessage(message));
+	public static int d(String message) {
+		return _d(TAG, formatMessage(message));
 	}
 
 	/**
 	 * Logs Debug entry
 	 *
-	 * @param tag tag
+	 * @param tag     tag
 	 * @param message message
+	 *
+	 * @return int The number of bytes written
 	 */
-	public static void d(String tag, String message) {
-		_d(TAG, formatMessage(tag, message));
+	public static int d(String tag, String message) {
+		return _d(TAG, formatMessage(tag, message));
 	}
 
 	/**
 	 * Logs Debug entry
 	 *
-	 * @param message message
+	 * @param message   message
 	 * @param throwable throwable
+	 *
+	 * @return int The number of bytes written
 	 */
-	public static void d(String message, Throwable throwable) {
-		_d(TAG, formatMessage(message + " " + throwable.getMessage()));
+	public static int d(String message, Throwable throwable) {
+		return _d(TAG, formatMessage(message + " " + throwable.getMessage()));
 	}
 
 	/**
 	 * Logs Debug entry
 	 *
-	 * @param tag tag
-	 * @param message message
+	 * @param tag       tag
+	 * @param message   message
 	 * @param throwable throwable
+	 *
+	 * @return int The number of bytes written
 	 */
-	public static void d(String tag, String message, Throwable throwable) {
-		_d(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
+	public static int d(String tag, String message, Throwable throwable) {
+		return _d(TAG, formatMessage(tag, message + " " + throwable.getMessage()));
 	}
 
 	/**
@@ -354,10 +382,11 @@ final public class WebnetLog {
 	 *
 	 * @param tag tag
 	 * @param msg msg
+	 *
+	 * @return int The number of bytes written
 	 */
-	protected static void _d(String tag, String msg) {
-		Log.d(tag, msg);
+	protected static int _d(String tag, String msg) {
+		return Log.d(tag, msg);
 	}
-
 
 }
