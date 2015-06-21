@@ -1,5 +1,6 @@
 package com.webnetmobile.tools.webnetlog;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
@@ -58,18 +59,12 @@ public class WebnetLog {
 	}
 
 	/**
-	 * Optional initialization method. Sets TAG to package name
+	 * Sets logging tag to simple class name of passed object.
 	 *
-	 * @param context (Context, Activity) to obtain package
+	 * @param obj object to get simple class name of as tag
 	 */
-	public static void setTagFromContext(Context context) {
-		try {
-			PackageManager manager = context.getPackageManager();
-			PackageInfo mPackageInfo = manager.getPackageInfo(context.getPackageName(), 0);
-			setTag(mPackageInfo.packageName);
-		} catch (PackageManager.NameNotFoundException e) {
-			e.printStackTrace();
-		}
+	public static void setTag(Object obj) {
+		setTag(obj.getClass().getSimpleName());
 	}
 
 	/**
