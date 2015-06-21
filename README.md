@@ -57,7 +57,7 @@ Usage
 
 Tagging
 -------
- If you do not want default `WebnetLog` tag, then you can i.e use `setTag()` or `setTagFromContext()`
+ If you do not want default `WebnetLog` tag, then you can use `setTag("string")`
  to set up different tag (tag is static, so you need to set it only once):
 
     WebnetLog.setTag("MyTag");
@@ -66,6 +66,21 @@ Tagging
  would produce:
 
     06-20 15:49:36.640 29827-29834/pkg.id D/MyTag﹕StartActivity$Stasis/test()[+25]
+
+ You can also pass any object to `setTag()` and then tag will be set to object class'
+ simple name:
+
+    Class Foo {
+      public void test() {
+        WebnetLog.setTag(this);
+        WebnetLog.d();
+      }
+    }
+
+would produce:
+
+    06-20 15:49:36.640 29827-29834/pkg.id D/Foo﹕Foo/test()[+25]
+
 
 Removing logs from production builds
 ------------------------------------

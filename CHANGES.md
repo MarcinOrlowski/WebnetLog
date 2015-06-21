@@ -1,3 +1,7 @@
+1.0.3 (2015.06.__)
+------------------
+ - Added setTag(object) signature to set tag to object class' simple name
+
 1.0.2 (2015.06.20)
 ------------------
  - Restored missing v()
