@@ -3,6 +3,7 @@ package com.webnetmobile.tools.webnetlog;
 import android.content.Context;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 /*
@@ -71,7 +72,6 @@ public class WebnetLog {
 		}
 	}
 
-
 	/**
 	 * Gets caller trace. It's important to understand what we got on stack and NOT
 	 * call this method directly or the output will be wrong.
@@ -85,6 +85,7 @@ public class WebnetLog {
 	 *
 	 * @return the caller trace
 	 */
+	@NonNull
 	protected static String getCallerTrace() {
 		return getCallerTrace(4);
 	}
@@ -96,6 +97,7 @@ public class WebnetLog {
 	 *
 	 * @return the caller trace
 	 */
+	@NonNull
 	protected static String getCallerTrace(int depth) {
 		Throwable throwable = new Throwable();
 		StackTraceElement[] stackTrace = throwable.getStackTrace();
@@ -115,6 +117,7 @@ public class WebnetLog {
 	 *
 	 * @return the string
 	 */
+	@NonNull
 	protected static String formatMessage() {
 		return getCallerTrace();
 	}
@@ -126,6 +129,7 @@ public class WebnetLog {
 	 *
 	 * @return message string
 	 */
+	@NonNull
 	protected static String formatMessage(String message) {
 		return getCallerTrace() + ": " + message;
 	}
@@ -138,6 +142,7 @@ public class WebnetLog {
 	 *
 	 * @return message string
 	 */
+	@NonNull
 	protected static String formatMessage(String tag, String message) {
 		return tag + ": " + getCallerTrace() + ": " + message;
 	}
@@ -149,6 +154,7 @@ public class WebnetLog {
 	 *
 	 * @return string to be placed in log
 	 */
+	@NonNull
 	public static String formatThrowable(Throwable throwable) {
 		return formatThrowable(throwable, " ");
 	}
@@ -161,6 +167,7 @@ public class WebnetLog {
 	 *
 	 * @return string to be placed in log. In case throwable is @null, returns empty string
 	 */
+	@NonNull
 	public static String formatThrowable(Throwable throwable, String prefix) {
 		if (throwable != null) {
 			return ((prefix != null) ? prefix : "") + throwable.getMessage() + " " + getStackTraceString(throwable);
