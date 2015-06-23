@@ -1,4 +1,4 @@
-1.0.3 (2015.06.__)
+1.0.3 (2015.06.23)
 ------------------
  - Added setTag(object) signature to set tag to object class' simple name
 
