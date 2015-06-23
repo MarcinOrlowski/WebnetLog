@@ -1,10 +1,5 @@
 package com.webnetmobile.tools.webnetlog;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.support.annotation.NonNull;
 import android.util.Log;
 
 /*
@@ -37,25 +32,25 @@ import android.util.Log;
 public class WebnetLog {
 
 	/**
-	 * The TAG.
+	 * The mTag.
 	 */
-	static protected String TAG = "WebnetLog";
+	protected static String mTag = "WebnetLog";
 
 	/**
 	 * Max length of tag string, as per Log.isLoggable() docs, tag limit is 23 chars
 	 */
-	static final int MAX_TAG_LENGTH = 23;
+	final static int MAX_TAG_LENGTH = 23;
 
 	/**
 	 * Optional initialization method
 	 *
-	 * @param tag Any string you want to be used as log TAG, instead of default value
+	 * @param tag Any string you want to be used as log mTag, instead of default value
 	 */
 	public static void setTag(String tag) {
 		if (tag.length() > MAX_TAG_LENGTH) {
 			tag = tag.substring(0, (MAX_TAG_LENGTH - 1));
 		}
-		TAG = tag;
+		mTag = tag;
 	}
 
 	/**
@@ -80,7 +75,6 @@ public class WebnetLog {
 	 *
 	 * @return the caller trace
 	 */
-	@NonNull
 	protected static String getCallerTrace() {
 		return getCallerTrace(4);
 	}
@@ -92,7 +86,6 @@ public class WebnetLog {
 	 *
 	 * @return the caller trace
 	 */
-	@NonNull
 	protected static String getCallerTrace(int depth) {
 		Throwable throwable = new Throwable();
 		StackTraceElement[] stackTrace = throwable.getStackTrace();
@@ -112,7 +105,6 @@ public class WebnetLog {
 	 *
 	 * @return the string
 	 */
-	@NonNull
 	protected static String formatMessage() {
 		return getCallerTrace();
 	}
@@ -124,7 +116,6 @@ public class WebnetLog {
 	 *
 	 * @return message string
 	 */
-	@NonNull
 	protected static String formatMessage(String message) {
 		return getCallerTrace() + ": " + message;
 	}
@@ -137,7 +128,6 @@ public class WebnetLog {
 	 *
 	 * @return message string
 	 */
-	@NonNull
 	protected static String formatMessage(String tag, String message) {
 		return tag + ": " + getCallerTrace() + ": " + message;
 	}
@@ -149,7 +139,6 @@ public class WebnetLog {
 	 *
 	 * @return string to be placed in log
 	 */
-	@NonNull
 	public static String formatThrowable(Throwable throwable) {
 		return formatThrowable(throwable, " ");
 	}
@@ -162,7 +151,6 @@ public class WebnetLog {
 	 *
 	 * @return string to be placed in log. In case throwable is @null, returns empty string
 	 */
-	@NonNull
 	public static String formatThrowable(Throwable throwable, String prefix) {
 		if (throwable != null) {
 			return ((prefix != null) ? prefix : "") + throwable.getMessage() + " " + getStackTraceString(throwable);
@@ -207,7 +195,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int v() {
-		return _v(TAG, formatMessage());
+		return _v(mTag, formatMessage());
 	}
 
 	/**
@@ -229,7 +217,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int v(String message) {
-		return _v(TAG, formatMessage(message));
+		return _v(mTag, formatMessage(message));
 	}
 
 	/**
@@ -241,7 +229,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int v(String tag, String message) {
-		return _v(TAG, formatMessage(tag, message));
+		return _v(mTag, formatMessage(tag, message));
 	}
 
 	/**
@@ -253,7 +241,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int v(String message, Throwable throwable) {
-		return _v(TAG, formatMessage(message + formatThrowable(throwable)));
+		return _v(mTag, formatMessage(message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -266,7 +254,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int v(String tag, String message, Throwable throwable) {
-		return _v(TAG, formatMessage(tag, message + formatThrowable(throwable)));
+		return _v(mTag, formatMessage(tag, message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -290,7 +278,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int i() {
-		return _i(TAG, formatMessage());
+		return _i(mTag, formatMessage());
 	}
 
 	/**
@@ -312,7 +300,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int i(String message) {
-		return _i(TAG, formatMessage(message));
+		return _i(mTag, formatMessage(message));
 	}
 
 	/**
@@ -324,7 +312,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int i(String tag, String message) {
-		return _i(TAG, formatMessage(tag, message));
+		return _i(mTag, formatMessage(tag, message));
 	}
 
 	/**
@@ -336,7 +324,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int i(String message, Throwable throwable) {
-		return _i(TAG, formatMessage(message + formatThrowable(throwable)));
+		return _i(mTag, formatMessage(message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -349,7 +337,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int i(String tag, String message, Throwable throwable) {
-		return _i(TAG, formatMessage(tag, message + formatThrowable(throwable)));
+		return _i(mTag, formatMessage(tag, message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -372,7 +360,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int w() {
-		return _w(TAG, formatMessage());
+		return _w(mTag, formatMessage());
 	}
 
 	/**
@@ -383,7 +371,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int w(String message) {
-		return _w(TAG, formatMessage(message));
+		return _w(mTag, formatMessage(message));
 	}
 
 	/**
@@ -395,7 +383,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int w(String tag, String message) {
-		return _w(TAG, formatMessage(tag, message));
+		return _w(mTag, formatMessage(tag, message));
 	}
 
 	/**
@@ -407,7 +395,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int w(String message, Throwable throwable) {
-		return _w(TAG, formatMessage(message + formatThrowable(throwable)));
+		return _w(mTag, formatMessage(message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -420,7 +408,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int w(String tag, String message, Throwable throwable) {
-		return _w(TAG, formatMessage(tag, message + formatThrowable(throwable)));
+		return _w(mTag, formatMessage(tag, message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -443,7 +431,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int e() {
-		return _e(TAG, formatMessage());
+		return _e(mTag, formatMessage());
 	}
 
 	/**
@@ -454,7 +442,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int e(String message) {
-		return _e(TAG, formatMessage(message));
+		return _e(mTag, formatMessage(message));
 	}
 
 	/**
@@ -466,7 +454,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int e(String tag, String message) {
-		return _e(TAG, formatMessage(tag, message));
+		return _e(mTag, formatMessage(tag, message));
 	}
 
 	/**
@@ -478,7 +466,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int e(String message, Throwable throwable) {
-		return _e(TAG, formatMessage(message + formatThrowable(throwable)));
+		return _e(mTag, formatMessage(message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -491,7 +479,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int e(String tag, String message, Throwable throwable) {
-		return _e(TAG, formatMessage(tag, message + formatThrowable(throwable)));
+		return _e(mTag, formatMessage(tag, message + formatThrowable(throwable)));
 	}
 
 	/**
@@ -514,7 +502,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int d() {
-		return _d(TAG, formatMessage());
+		return _d(mTag, formatMessage());
 	}
 
 	/**
@@ -525,7 +513,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int d(String message) {
-		return _d(TAG, formatMessage(message));
+		return _d(mTag, formatMessage(message));
 	}
 
 	/**
@@ -537,7 +525,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int d(String tag, String message) {
-		return _d(TAG, formatMessage(tag, message));
+		return _d(mTag, formatMessage(tag, message));
 	}
 
 	/**
@@ -549,7 +537,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int d(String message, Throwable throwable) {
-		return _d(TAG, formatMessage(message + " " + throwable.getMessage()));
+		return _d(mTag, formatMessage(message + " " + throwable.getMessage()));
 	}
 
 	/**
@@ -562,7 +550,7 @@ public class WebnetLog {
 	 * @return The number of bytes written
 	 */
 	public static int d(String tag, String message, Throwable throwable) {
-		return _d(TAG, formatMessage(tag, message + formatThrowable(throwable)));
+		return _d(mTag, formatMessage(tag, message + formatThrowable(throwable)));
 	}
 
 	/**
