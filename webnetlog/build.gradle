@@ -13,7 +13,7 @@ ext {
     siteUrl = 'https://bitbucket.org/webnetmobile/webnet-log/'
     gitUrl = 'https://bitbucket.org/webnetmobile/webnet-log.git'
 
-    libraryVersion = '1.0.2'
+    libraryVersion = '1.0.3'
 
     developerId = 'webnetmobile'
     developerName = 'Marcin Orlowski'
@@ -30,8 +30,8 @@ android {
     defaultConfig {
         minSdkVersion 1
         targetSdkVersion 22
-        versionCode 2015062002
-        versionName '1.0.2'
+        versionCode 2015062300
+        versionName '1.0.3'
     }
     buildTypes {
         release {
