@@ -20,24 +20,35 @@ Log content
 -----------
  The main purpose of WebnetLog class was making debugging easier. This means you should your log entries
  more useful, by providing additional information helping locating adds some additional debug information
- to log message to make it more useful at less efforts. Let's see example usage. The following call:
+ to log message to make it more useful at less efforts. Let's see example usage of standard Log class:
 
     Log.d("TAG", "foo");
 
- which would produce following entry (timestamp and package id removed):
+ This would produce following entry (timestamp and package id removed) in your log:
 
     06-20 15:49:36.640 29827-29834/pkg.id D/TAG﹕foo
 
- while when using WebnetLog class:
+ This is not very useful, as all you can tell from this entry is that "foo" was looged, not to mention
+ I personally never found tagging log entries useful. I prefer more clear information - class name,
+ line numbers etc. So let's check what WebnetLog could give you out of the box. When using WebnetLog
+ you do not need to give a tag (but you can if you want, of course), just the message:
 
     WebnetLog.d("foo");
 
- you would get output as follow:
+ and you would get output as follow:
 
     06-20 15:49:36.640 29827-29834/pkg.id D/WebnetLog﹕StartActivity$Stasis/test()[+25]: foo
 
  As you can see we can tell, that this log entry was produced by method `d()`, invoked in inner class
  `Stasis` of `StartActivity` class, in method `test()`, in line `25` of the source file.
+
+ Even better, you can just ommit the arguments, and just do:
+
+    WebnetLog.d();
+
+ to get almost the same information logged:
+
+     06-20 15:49:36.640 29827-29834/pkg.id D/WebnetLog﹕StartActivity$Stasis/test()[+25]
 
 
 Usage
