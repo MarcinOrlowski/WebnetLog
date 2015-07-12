@@ -7,6 +7,14 @@ WebnetLog - Logging made easy
  WebnetLog is small extension to Log class, bringing simpler usage and automatically adding
  useful technical information to log entries to simplify application debugging.
 
+Add WebnetLog to your project
+-----------------------------
+ WebnetLog is available via jcenter repository, so all you need is to edit your `build.gradle` file
+ and add one line:
+
+    compile 'com.webnetmobile.tools:webnet-log:1.+'
+
+ to your `dependencies` section.
 
 Log content
 -----------
@@ -95,15 +103,6 @@ Removing logs from production builds
          public static int d(...);
          public static int e(...);
     }
-
-Add WebnetLog to your project
------------------------------
- WebnetLog is available via jcenter repository, so all you need is to edit your `build.gradle` file
- and add one line:
-
-    compile 'com.webnetmobile.tools:webnet-log:1.+'
-
- to your `dependencies` section.
 
 
 Bug reports, improvements or PRs
