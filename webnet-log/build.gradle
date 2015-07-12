@@ -5,7 +5,7 @@ ext {
     bintrayName = 'webnet-log'
 
     publishedGroupId = 'com.webnetmobile.tools'
-    libraryName = 'WebnetLog'
+    libraryName = 'Webnet-log'
     artifact = 'webnet-log'
 
     libraryDescription = 'Log wrapper making Android logging much easier and useful, by providing additional information in your logcat out-of-the-box.'
