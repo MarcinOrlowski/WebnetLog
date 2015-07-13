@@ -1,6 +1,6 @@
 [ ![Download](https://api.bintray.com/packages/webnetmobile/maven/webnet-log/images/download.svg) ](https://bintray.com/webnetmobile/maven/webnet-log/_latestVersion)
 
-![WebnetLog](https://bytebucket.org/webnetmobile/webnetlog/raw/master/PROJECT/webnet-log-200.png)
+![WebnetLog](https://bytebucket.org/webnetmobile/webnet-log/raw/master/PROJECT/webnet-log-200.png)
 
 WebnetLog - Logging made easy
 =============================
