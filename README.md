@@ -4,8 +4,8 @@
 
 WebnetLog - Logging made easy
 =============================
- WebnetLog is small extension to Log class, bringing simpler usage and automatically adding
- useful technical information to log entries to simplify application debugging.
+ WebnetLog is small extension to [android.util.Log](https://developer.android.com/reference/android/util/Log.html) class, bringing simpler usage and automatically adding
+ useful technical information to log entries to simplify debugging of your Android applications.
 
 Add WebnetLog to your project
 -----------------------------
