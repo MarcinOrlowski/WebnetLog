@@ -119,4 +119,4 @@ Removing logs from production builds
 Bug reports, improvements or PRs
 --------------------------------
  Please submit your bug reports or feature requests to project issue tracker at Bitbucket:
- https://bitbucket.org/webnetmobile/webnetlog/issues
+ https://bitbucket.org/webnetmobile/webnet-log/issues
