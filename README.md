@@ -1,20 +1,28 @@
-[ ![Download](https://api.bintray.com/packages/webnetmobile/maven/webnet-log/images/download.svg) ](https://bintray.com/webnetmobile/maven/webnet-log/_latestVersion)
+[![Release](https://jitpack.io/v/MarcinOrlowski/webnet-log.svg)](https://jitpack.io/#MarcinOrlowski/webnet-log)
 
-![WebnetLog](https://bytebucket.org/webnetmobile/webnet-log/raw/master/PROJECT/webnet-log-200.png)
+![WebnetLog](PROJECT/webnet-log-200.png)
 
 WebnetLog - Logging made easy
 =============================
- WebnetLog is small extension to [android.util.Log](https://developer.android.com/reference/android/util/Log.html) class, bringing simpler usage and automatically adding
+ WebnetLog is small extension of [android.util.Log](https://developer.android.com/reference/android/util/Log.html) 
+ class, bringing simpler usage and automatically adding
  useful technical information to log entries to simplify debugging of your Android applications.
 
 Add WebnetLog to your project
 -----------------------------
- WebnetLog is available via jcenter repository, so all you need is to edit your `build.gradle` file
- and add one line:
+ Edit your master `gradle.build` file and add jitpack repository (if you use other jitpack hosted artefacts,
+ then you have this already and this step can safely be skipped):
 
-    compile 'com.webnetmobile.tools:webnet-log:1.+'
+    allprojects {
+        repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
 
- to your `dependencies` section.
+ then edit your module's `build.gradle` and add the following as your dependency:
+
+    compile 'com.github.MarcinOrlowski:webnet-log:2.0.0'
 
 Log content
 -----------
@@ -118,5 +126,5 @@ Removing logs from production builds
 
 Bug reports, improvements or PRs
 --------------------------------
- Please submit your bug reports or feature requests to project issue tracker at Bitbucket:
- https://bitbucket.org/webnetmobile/webnet-log/issues
+ Please submit your bug reports or feature requests to [project issue tracker](https://github.com/MarcinOrlowski/webnet-log/issues).
+ 
