@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WebnetLog.iml" filepath="$PROJECT_DIR$/WebnetLog.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/webnetlog/webnet-log.iml" filepath="$PROJECT_DIR$/webnetlog/webnet-log.iml" />
+      <module fileurl="file://$PROJECT_DIR$/webnet-log.iml" filepath="$PROJECT_DIR$/webnet-log.iml" />
     </modules>
   </component>
 </project>
