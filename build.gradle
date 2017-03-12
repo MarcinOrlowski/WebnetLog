@@ -1,16 +1,18 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.github.ben-manes.versions'
 buildscript {
     repositories {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.android.tools.build:gradle:2.3.0'
 
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.2'
-        classpath 'com.github.dcendents:android-maven-plugin:1.2'
+        // https://github.com/ben-manes/gradle-versions-plugin
+        // Usage: gradlew dependencyUpdates task to check dependency versions
+        // also needs apply plugin: 'com.github.ben-manes.versions'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        // jitpack.io
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
 }
 allprojects {
@@ -18,14 +20,6 @@ allprojects {
         jcenter()
     }
 }
-
-android {
-    compileSdkVersion 25
-    buildToolsVersion '25.0.2'
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
-    }
-}
-dependencies {
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

@@ -1,1 +1,1 @@
-include ':app', ':webnet-log'
+include ':lib'

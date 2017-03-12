@@ -1,14 +1,17 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
+
+// jitpack
+apply plugin: 'com.github.dcendents.android-maven'
+group='com.github.MarcinOrlowski'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.example.webnetmobile.webnetlog"
         minSdkVersion 1
-        targetSdkVersion 22
-        versionCode 2015062001
-        versionName '1.0.1'
+        targetSdkVersion 25
+        versionCode 2015062300
+        versionName '1.1.0'
     }
     buildTypes {
         release {

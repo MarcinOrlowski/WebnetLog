@@ -1,28 +1,31 @@
-[![Release](https://jitpack.io/v/MarcinOrlowski/webnet-log.svg)](https://jitpack.io/#MarcinOrlowski/webnet-log)
+[![Release](https://jitpack.io/v/MarcinOrlowski/webnetlog.svg)](https://jitpack.io/#MarcinOrlowski/webnetlog)
 
-![WebnetLog](PROJECT/webnet-log-200.png)
+![WebnetLog](img/webnet-log-200.png)
 
 WebnetLog - Logging made easy
 =============================
- WebnetLog is small extension of [android.util.Log](https://developer.android.com/reference/android/util/Log.html) 
+ `WebnetLog` is small extension of [android.util.Log](https://developer.android.com/reference/android/util/Log.html) 
  class, bringing simpler usage and automatically adding
  useful technical information to log entries to simplify debugging of your Android applications.
 
-Add WebnetLog to your project
------------------------------
- Edit your master `gradle.build` file and add jitpack repository (if you use other jitpack hosted artefacts,
- then you have this already and this step can safely be skipped):
+Installation
+============
+
+ Edit your master `gradle.build` file and **add** `maven { url 'https://jitpack.io' }` to your current
+ `repositories` block content (if you use other jitpack hosted libraries, then this step can be skipped):
 
     allprojects {
-        repositories {
-			...
-			maven { url 'https://jitpack.io' }
-		}
-	}
+      repositories {
+        maven { url 'https://jitpack.io' }
+        }
+    }
 
- then edit your module's `build.gradle` and add the following as your dependency:
+ Next, edit your **module**'s `build.gradle` and the following dependency:
 
-    compile 'com.github.MarcinOrlowski:webnet-log:2.0.0'
+    compile 'com.github.MarcinOrlowski:WebnetLog:<VERSION>'
+
+ For recent value of `<VERSION>` consult [library releases](https://github.com/MarcinOrlowski/WebnetLog/releases)
+ or jitpack badge: [![Release](https://jitpack.io/v/MarcinOrlowski/webnetlog.svg)](https://jitpack.io/#MarcinOrlowski/WebnetLog)
 
 Log content
 -----------
@@ -124,7 +127,35 @@ Removing logs from production builds
     }
 
 
-Bug reports, improvements or PRs
---------------------------------
- Please submit your bug reports or feature requests to [project issue tracker](https://github.com/MarcinOrlowski/webnet-log/issues).
+
+Project support
+===============
+  
+ `WebnetLog` is free software and you can use it fully free of charge in any of your projects, open source or 
+ commercial, however if you feel it prevent you from reinventing the wheel, helped having your projects done or simply
+ saved you time and money  then then feel free to donate to the project by sending some BTC to 
+ `1LbfbmZ1KfSNNTGAEHtP63h7FPDEPTa3Yo`.
+  
+ ![BTC](img/btc.png)
+  
+
+Contributing
+============
+  
+ Please report any issue spotted using [GitHub's project tracker](https://github.com/MarcinOrlowski/WebnetLog/issues).
+   
+ If you'd like to contribute to the this project, please [open new ticket](https://github.com/MarcinOrlowski/WebnetLog/issues) 
+ **before doing any work**. This will help us save your time in case I'd not be able to accept such changes. But if all is good and 
+ clear then follow common routine:
+  
+  * fork the project
+  * create new branch
+  * do your changes
+  * send pull request
  
+  
+License
+=======
+  
+  * Written and copyrighted &copy;2015-2017 by Marcin Orlowski <mail (#) marcinorlowski (.) com>
+  * `WebnetLog` is open-sourced library licensed under the Apache 2.0 license

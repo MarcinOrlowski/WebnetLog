@@ -1,4 +1,4 @@
-package com.webnetmobile.tools.webnetlog;
+package com.marcinorlowski.webnetlog;
 
 import android.util.Log;
 
