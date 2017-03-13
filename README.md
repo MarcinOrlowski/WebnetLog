@@ -1,4 +1,5 @@
 [![Release](https://jitpack.io/v/MarcinOrlowski/webnetlog.svg)](https://jitpack.io/#MarcinOrlowski/webnetlog)
+[![Dependency Status](https://dependencyci.com/github/MarcinOrlowski/WebnetLog/badge)](https://dependencyci.com/github/MarcinOrlowski/WebnetLog)
 
 ![WebnetLog](img/webnet-log-200.png)
 
